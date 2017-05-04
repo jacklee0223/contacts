@@ -7,6 +7,7 @@ The purpose of this exercise is for you to demonstrate your ability to create a 
 - Proficiency in leveraging existing technologies to create a responsive application.
 - Ability to use CSS, HTML, and Javascript to match a mock design.
 - Logical code architecture and choice of frameworks (within the context of React).
+- Comprehensive coverage of use cases.
 
 ### Challenge
 Create a React app that takes the user input with a form and then displays the results in a table. It should meet the following requirements.
@@ -28,11 +29,13 @@ Create a React app that takes the user input with a form and then displays the r
 ![Modal Mock](/assets/ContactsKeeper-02.png)
 
 ### Bonus Points
-These are not required, but would be great additions if time permits.
-- Implement a method to persist the created data.
-- Full-Test Coverage
+These are not required and we do not expect someone to do all of the below, but would be great additions if time permits.
+- Unit Tests
+- Mobile Design
 - Filter the Table Results from the Search
 - Add Sortable Columns to the table
+- Abide by [Clean Code JavaScript](https://github.com/ryanmcdermott/clean-code-javascript)
+- Prefer [Functional Programming](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0)
 
 ### Other
 To begin this challenge, please clone this repo and create a Pull Request into the repo when you are finished. Please add details for running your app to the `Running My App (README.md)` section below.
