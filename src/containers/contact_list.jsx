@@ -13,14 +13,27 @@ class ContactList extends Component {
     .then((response) => {
       this.setState({contacts: response.payload.data})
     })
+
+    this.sortTable = this.sortTable.bind(this);
+  }
+
+  sortTable(event) {
+    const column = event.target.getAttribute('name');
+    const sorted = this.state.contacts.sort( ( a, b ) => {
+      if(a[column] < b[column]) return -1;
+      if(a[column] > b[column]) return 1;
+      return 0;
+    } );
+    this.setState( { contacts: sorted } );
   }
 
   renderContact(contactData) {
+    let _contactData = contactData
     if ( !contactData ) {
       return <tbody></tbody>
     }
 
-    const contactItems = contactData.map( contact => {
+    const contactItems = _contactData.map( contact => {
       const fields = [ 'first_name', 'last_name', 'dob', 'notes', 'phone', 'email' ]
       const missing_fields = fields.some( field => {
         return !contact[ field ];
@@ -62,12 +75,12 @@ class ContactList extends Component {
       <table className="table table-hover">
         <thead>
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>DOB</th>
-            <th>Note</th>
+            <th name="first_name" onClick={ this.sortTable }>First Name</th>
+            <th name="last_name" onClick={ this.sortTable }>Last Name</th>
+            <th name="phone" onClick={ this.sortTable }>Phone</th>
+            <th name="email" onClick={ this.sortTable }>Email</th>
+            <th name="dob" onClick={ this.sortTable }>DOB</th>
+            <th name="notes" onClick={ this.sortTable }>Notes</th>
           </tr>
         </thead>
         { this.renderContact( this.state.contacts ) }
