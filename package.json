@@ -18,7 +18,6 @@
   "bugs": {
     "url": "https://github.com/ONEHOPEWINE/js-challenge/issues"
   },
-  "homepage": "https://github.com/ONEHOPEWINE/js-challenge#readme",
   "dependencies": {
     "axios": "^0.16.1",
     "onchange": "^3.2.1",

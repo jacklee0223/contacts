@@ -20,7 +20,6 @@ class ContactList extends Component {
       return <tbody></tbody>
     }
 
-    console.log(contactData.first_name)
     const contactItems = contactData.map( contact => {
       const id = contact.id
       const first_name = contact.first_name;
@@ -69,5 +68,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchContacts }, dispatch)
 }
 
-// this container doesn't care about recux maintaining this components state (null)
 export default connect(null, mapDispatchToProps)(ContactList)
