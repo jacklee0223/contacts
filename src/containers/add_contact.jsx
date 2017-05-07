@@ -17,7 +17,7 @@ class AddContact extends Component {
       phone: '',
       email: '',
       dob: '',
-      note: '',
+      notes: '',
     };
 
     this.onAddContact = this.onAddContact.bind(this);
@@ -27,6 +27,16 @@ class AddContact extends Component {
 
   onAddContact( event ) {
     event.preventDefault();
+    const state = this.state;
+    const data = {
+      first_name: state.first_name,
+      last_name: state.last_name,
+      phone: state.phone,
+      email: state.email,
+      dob: state.dob,
+      notes: state.notes,
+    }
+    this.props.createContact( data );
   }
 
   handleChange(event) {
@@ -71,7 +81,7 @@ class AddContact extends Component {
           <FormGroup className="add-contact-form" controlId="formInlineNote">
             <ControlLabel>Note</ControlLabel>
             {' '}
-            <FormControl type="text" placeholder="Note" name="note" inputRef={ref => { this.input = ref }} value={this.state.note} onChange={this.handleChange} />
+            <FormControl type="text" placeholder="Notes" name="notes" inputRef={ref => { this.input = ref }} value={this.state.notes} onChange={this.handleChange} />
           </FormGroup>
           {' '}
           <Button
@@ -119,7 +129,7 @@ class AddContact extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ AddContact }, dispatch)
+  return bindActionCreators({ createContact }, dispatch)
 }
 
 export default connect(null, mapDispatchToProps)(AddContact)

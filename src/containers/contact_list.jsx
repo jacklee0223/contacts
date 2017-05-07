@@ -21,7 +21,6 @@ class ContactList extends Component {
     }
 
     const contactItems = contactData.map( contact => {
-      console.log(contact)
       const id = contact.id
       const first_name = contact.first_name;
       const last_name = contact.last_name;
@@ -40,7 +39,7 @@ class ContactList extends Component {
         </tr>
 			)
 		} )
-    
+
 
     return (
       <tbody>
