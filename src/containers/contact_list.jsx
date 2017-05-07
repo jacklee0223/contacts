@@ -30,7 +30,7 @@ class ContactList extends Component {
       const email = contact.email;
 			return (
         <tr key={ id }>
-          <td>{ first_name }</td>
+          <td>{ first_name, last_name }</td>
           <td>{ phone }</td>
           <td>{ email }</td>
           <td>{ dob }</td>
