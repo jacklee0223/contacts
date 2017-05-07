@@ -9,3 +9,7 @@ body {
   background-color: orange;
   color: white;
 }
+
+.add-contact-form label {
+  font-size: 12px;
+}

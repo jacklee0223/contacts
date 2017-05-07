@@ -21,7 +21,9 @@
   "dependencies": {
     "axios": "^0.16.1",
     "onchange": "^3.2.1",
+    "popups": "^1.1.3",
     "react": "^15.5.4",
+    "react-bootstrap": "^0.31.0",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
