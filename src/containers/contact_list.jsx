@@ -7,7 +7,7 @@ class ContactList extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { term: '' };
+    this.state = {};
 
     this.props.fetchContacts()
     .then((response) => {
@@ -48,7 +48,6 @@ class ContactList extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <table className="table table-hover">
         <thead>
