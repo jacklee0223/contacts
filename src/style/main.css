@@ -10,6 +10,21 @@ body {
   color: white;
 }
 
+.add-contact-form {
+  display: block !important;
+  margin-bottom: 15px !important;
+  vertical-align: middle !important;
+}
+
 .add-contact-form label {
   font-size: 12px;
+  margin-bottom: 5px !important;
+}
+
+.form-inline .form-control {
+  display: block !important
+}
+
+.form-inline input {
+  width: 100% !important;
 }

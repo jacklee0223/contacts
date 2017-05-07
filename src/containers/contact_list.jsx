@@ -40,6 +40,7 @@ class ContactList extends Component {
         </tr>
 			)
 		} )
+    
 
     return (
       <tbody>

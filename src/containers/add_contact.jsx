@@ -39,13 +39,13 @@ class AddContact extends Component {
       return (
         <Form inline>
           <FormGroup className="add-contact-form" controlId="formInlineFirstName">
-            <ControlLabel bsSize="small">First Name</ControlLabel>
+            <ControlLabel>First Name</ControlLabel>
             {' '}
             <FormControl type="text" placeholder="First Name" name="first_name" inputRef={ref => { this.input = ref }} value={this.state.first_name} onChange={this.handleChange} />
           </FormGroup>
           {' '}
           <FormGroup className="add-contact-form" controlId="formInlineLastName">
-            <ControlLabel bsSize="small">Last Name</ControlLabel>
+            <ControlLabel>Last Name</ControlLabel>
             {' '}
             <FormControl type="text" placeholder="Last Name" name="last_name" inputRef={ref => { this.input = ref }} value={this.state.last_name} onChange={this.handleChange} />
           </FormGroup>
