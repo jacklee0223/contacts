@@ -36,6 +36,17 @@ class AddContact extends Component {
       dob: state.dob,
       notes: state.notes,
     }
+
+    const fields = [ 'first_name', 'last_name', 'dob', 'notes', 'phone', 'email' ]
+    const missing_fields = fields.some( field => {
+      return !data[ field ];
+    } )
+
+    if ( missing_fields ) {
+      alert( "You have to fill out all inputs" );
+      return;
+    }
+
     this.props.createContact( data );
   }
 
