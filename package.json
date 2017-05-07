@@ -1,0 +1,35 @@
+{
+  "name": "js-challenge",
+  "version": "1.0.0",
+  "description": "Onehope Wine React Challenge - Jeong Min Lee",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build:watch": "onchange 'public/*.html' 'src/*.js' 'src/**/*.js' 'src/**/*.tmpl' 'src/**/*.html' 'src/**/*.css' 'src/**/*.svg' -i -- npm run build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ONEHOPEWINE/js-challenge.git"
+  },
+  "author": "Jeong Min Lee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ONEHOPEWINE/js-challenge/issues"
+  },
+  "homepage": "https://github.com/ONEHOPEWINE/js-challenge#readme",
+  "dependencies": {
+    "axios": "^0.16.1",
+    "onchange": "^3.2.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
+    "redux": "^3.6.0",
+    "uuid": "^3.0.1"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.49.0",
+    "react-scripts": "^0.9.5"
+  }
+}
