@@ -13,7 +13,7 @@ module.exports.create = (event, context, callback) => {
     Item: {
       id: uuid.v1(),
       first_name: data.first_name,
-      last_name: data.first_name,
+      last_name: data.last_name,
       dob: data.dob,
       phone: data.phone,
       email: data.email,

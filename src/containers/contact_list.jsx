@@ -25,15 +25,17 @@ class ContactList extends Component {
       const first_name = contact.first_name;
       const last_name = contact.last_name;
       const dob = contact.dob;
-      const note = contact.note;
+      const notes = contact.notes;
       const phone = contact.phone;
       const email = contact.email;
 			return (
         <tr key={ id }>
-          <td>{ first_name, last_name }</td>
+          <td>{ first_name }</td>
+          <td>{ last_name }</td>
           <td>{ phone }</td>
           <td>{ email }</td>
           <td>{ dob }</td>
+          <td>{ notes }</td>
         </tr>
 			)
 		} )
@@ -51,7 +53,8 @@ class ContactList extends Component {
       <table className="table table-hover">
         <thead>
           <tr>
-            <th>Name</th>
+            <th>First Name</th>
+            <th>Last Name</th>
             <th>Phone</th>
             <th>Email</th>
             <th>DOB</th>
