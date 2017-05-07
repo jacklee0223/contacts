@@ -21,6 +21,15 @@ class ContactList extends Component {
     }
 
     const contactItems = contactData.map( contact => {
+      const fields = [ 'first_name', 'last_name', 'dob', 'notes', 'phone', 'email' ]
+      const missing_fields = fields.some( field => {
+        return !contact[ field ];
+      } )
+
+      if ( missing_fields ) {
+        return;
+      }
+
       const id = contact.id
       const first_name = contact.first_name;
       const last_name = contact.last_name;
