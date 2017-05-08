@@ -22,7 +22,7 @@ class ContactList extends Component {
 
   sortTable(event) {
     const column = event.target.getAttribute('name');
-    const sorted = this.state.contacts.sort( ( a, b ) => {
+    const sorted = this.props.contact[0].sort( ( a, b ) => {
       if(a[column] < b[column]) return -1;
       if(a[column] > b[column]) return 1;
       return 0;
