@@ -8,6 +8,9 @@ import {
   HelpBlock
 } from 'react-bootstrap'
 
+import {searchContacts} from '../actions/search_contacts';
+
+
 class SearchBar extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +26,7 @@ class SearchBar extends Component {
   }
 
   onSearch() {
-    
+    this.props.searchContacts(this.state.keyword)
   }
 
   render() {
@@ -48,4 +51,14 @@ class SearchBar extends Component {
   }
 }
 
-export default connect(null, null)(SearchBar)
+function mapStateToProps({contact}) {
+  return {contact};
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    searchContacts
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)
