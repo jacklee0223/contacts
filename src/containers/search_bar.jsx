@@ -9,6 +9,7 @@ import {
 } from 'react-bootstrap'
 
 import {searchContacts} from '../actions/search_contacts';
+import {resetSearch} from '../actions/reset_search';
 
 
 class SearchBar extends Component {
@@ -22,11 +23,16 @@ class SearchBar extends Component {
   }
 
   onInputChange( event ) {
-    this.setState( { keyword: event.target.value } )
+    const inputValue = event.target.value;
+    this.setState( { keyword: inputValue } )
+    if ( inputValue === "" ) {
+      this.props.resetSearch( this.state.default_contact );
+    }
   }
 
   onSearch( event ) {
     event.preventDefault();
+    this.setState( {default_contact: this.props.contact} )
     this.props.searchContacts(this.state.keyword)
   }
 
@@ -66,7 +72,8 @@ function mapStateToProps({contact}) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    searchContacts
+    searchContacts,
+    resetSearch
   }, dispatch)
 }
 

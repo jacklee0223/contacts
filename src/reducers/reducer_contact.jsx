@@ -2,6 +2,7 @@ import _ from 'underscore';
 import { FETCH_CONTACTS } from '../actions/fetch_contacts';
 import { CREATE_CONTACT } from '../actions/create_contact';
 import { SEARCH_CONTACTS } from '../actions/search_contacts';
+import { RESET_SEARCH } from '../actions/reset_search';
 
 export default function( state = [], action ) {
   let newState
@@ -21,7 +22,8 @@ export default function( state = [], action ) {
         return some
       } )
       return newState
-
+    case RESET_SEARCH:
+      return action.payload
     default:
       return state
   }
