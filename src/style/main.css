@@ -20,8 +20,8 @@ body {
 }
 
 .navbar-title {
-  font-size: 1.5em;
-  padding: 25px;
+  font-size: 1.8em;
+  padding: 25px 75px;
 }
 
 .navbar-greyspace {
@@ -50,6 +50,7 @@ body {
 
 .add-contact-container button {
   height: 34px;
+  width: 280px;
 }
 
 .form-inline .form-control {
@@ -65,13 +66,21 @@ body {
 }
 
 /*Search*/
-
 .search-input {
   display: inline-block;
-  width: auto;
+  min-width: 240px;
 }
 
 .search-add-pane {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+}
+
+@media ( min-width: 750px) {
+  .search-add-pane {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
