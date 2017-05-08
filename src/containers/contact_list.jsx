@@ -2,20 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchContacts } from '../actions/fetch_contacts';
-import { createContact } from '../actions/create_contact';
 
 class ContactList extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      contacts: []
-    };
+    this.state = {};
 
     this.props.fetchContacts()
-    .then((response) => {
-      this.setState({contacts: [this.state.contacts, ...response.payload.data]})
-    })
 
     this.sortTable = this.sortTable.bind(this);
   }
@@ -95,7 +89,7 @@ function mapStateToProps( { contact } ) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchContacts, createContact }, dispatch)
+  return bindActionCreators({ fetchContacts }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList)

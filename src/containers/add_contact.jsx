@@ -6,7 +6,6 @@ import { bindActionCreators } from 'redux';
 import { Modal, Button, Form, FormGroup, ControlLabel, FormControl, Col } from 'react-bootstrap'
 
 import { createContact } from '../actions/create_contact';
-import { fetchContacts } from '../actions/fetch_contacts';
 
 class AddContact extends Component {
   constructor(props) {
@@ -154,12 +153,8 @@ class AddContact extends Component {
     }
 }
 
-function mapStateToProps( { contact } ) {
-  return { contact };
-}
-
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ createContact }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddContact)
+export default connect(null, mapDispatchToProps)(AddContact)
