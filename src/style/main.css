@@ -28,3 +28,8 @@ body {
 .form-inline input {
   width: 100% !important;
 }
+
+.search-input {
+  display: inline-block;
+  width: auto;
+}

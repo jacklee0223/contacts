@@ -6,8 +6,5 @@ const serviceURL = `https://wz2vh7su1d.execute-api.us-east-1.amazonaws.com/dev/c
 export function fetchContacts() {
   const request = axios.get(serviceURL);
 
-  return {
-    type: FETCH_CONTACTS,
-    payload: request
-  }
+  return {type: FETCH_CONTACTS, payload: request}
 }
