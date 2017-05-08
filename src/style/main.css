@@ -21,7 +21,7 @@ body {
 
 .navbar-title {
   font-size: 1.8em;
-  padding: 25px 75px;
+  padding: 25px 50px;
 }
 
 .navbar-greyspace {
@@ -75,7 +75,26 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin: 20px auto;
 }
+
+/*Table*/
+.table {
+  max-width: 100%;
+  overflow-x: scroll;
+  display: block;
+  font-size: 10px;
+}
+
+.table th {
+  background-color: #8c8c8c;
+}
+
+.table th, tr, td {
+  border: 1px solid #dbdbdb;
+  min-width: 80px;
+}
+
 
 @media ( min-width: 750px) {
   .search-add-pane {
