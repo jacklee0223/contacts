@@ -5,7 +5,7 @@ import {
   FormGroup,
   ControlLabel,
   FormControl,
-  HelpBlock
+  Form
 } from 'react-bootstrap'
 
 import {searchContacts} from '../actions/search_contacts';
@@ -25,14 +25,19 @@ class SearchBar extends Component {
     this.setState( { keyword: event.target.value } )
   }
 
-  onSearch() {
+  onSearch( event ) {
+    event.preventDefault();
     this.props.searchContacts(this.state.keyword)
+  }
+
+  preventDefault( event ) {
+    event.preventDefault();
   }
 
   render() {
     return (
       <div>
-        <form>
+        <Form>
           <FormGroup controlId="formBasicText" className="search-input">
             <FormControl
               type="text"
@@ -40,12 +45,16 @@ class SearchBar extends Component {
               onChange={this.onInputChange}
             />
           </FormGroup>
-          <span
-            className="glyphicon glyphicon-search"
-            aria-hidden="true"
+          <button
+            type="submit"
             onClick={this.onSearch}
-          ></span>
-        </form>
+          >
+            <span
+              className="glyphicon glyphicon-search"
+              aria-hidden="true"
+              ></span>
+          </button>
+      </Form>
       </div>
     )
   }
