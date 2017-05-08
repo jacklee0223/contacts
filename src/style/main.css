@@ -1,14 +1,41 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: Avenir, Helvetica, sans-serif;
 }
 
-.navbar {
-  height: 50px;
-  background-color: orange;
-  color: white;
+.App {
+  width: 100%;
 }
+
+/*Navbar*/
+.navbar-container {
+  height: 15vh;
+  color: #ffffff;
+  background-color: #f49542;
+}
+
+.navbar-top {
+  height: 12vh
+}
+
+.navbar-title {
+  font-size: 1.5em;
+  padding: 25px;
+}
+
+.navbar-greyspace {
+  background-color: #dbdbdb;
+  height: 3vh;
+}
+
+/*Main Container*/
+
+.main-container {
+  padding: 5%;
+}
+
+/*Add Contact Form*/
 
 .add-contact-form {
   display: block !important;
@@ -21,15 +48,30 @@ body {
   margin-bottom: 5px !important;
 }
 
+.add-contact-container button {
+  height: 34px;
+}
+
 .form-inline .form-control {
-  display: block !important
+  display: block !important;
 }
 
 .form-inline input {
   width: 100% !important;
 }
 
+.plus-sign {
+  padding-right: 5px;
+}
+
+/*Search*/
+
 .search-input {
   display: inline-block;
   width: auto;
+}
+
+.search-add-pane {
+  display: flex;
+  justify-content: space-between;
 }

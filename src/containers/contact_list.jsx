@@ -45,7 +45,7 @@ class ContactList extends Component {
       })
 
       if (missing_fields) {
-        return;
+        return <tr></tr>;
       }
 
       const id = contact.id

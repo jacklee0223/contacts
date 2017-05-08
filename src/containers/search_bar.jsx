@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {
   FormGroup,
-  ControlLabel,
   FormControl,
   Form
 } from 'react-bootstrap'
@@ -24,6 +23,7 @@ class SearchBar extends Component {
 
   onInputChange( event ) {
     const inputValue = event.target.value;
+    event.preventDefault();
     this.setState( { keyword: inputValue } )
     if ( inputValue === "" ) {
       this.props.resetSearch( this.state.default_contact );
@@ -31,18 +31,17 @@ class SearchBar extends Component {
   }
 
   onSearch( event ) {
+    const keyword = this.state.keyword
     event.preventDefault();
     this.setState( {default_contact: this.props.contact} )
-    this.props.searchContacts(this.state.keyword)
-  }
-
-  preventDefault( event ) {
-    event.preventDefault();
+    if ( keyword.length > 0 ) {
+      this.props.searchContacts(keyword)
+    }
   }
 
   render() {
     return (
-      <div>
+      <div className="search-container">
         <Form>
           <FormGroup controlId="formBasicText" className="search-input">
             <FormControl
@@ -52,6 +51,7 @@ class SearchBar extends Component {
             />
           </FormGroup>
           <button
+            className="btn btn-primary"
             type="submit"
             onClick={this.onSearch}
           >

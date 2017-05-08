@@ -81,7 +81,7 @@ class AddContact extends Component {
 
   renderForm() {
     let close = () => this.setState({show: false});
-    
+
     return (
       <Form inline>
         <Modal.Body>
@@ -147,7 +147,8 @@ class AddContact extends Component {
       <div className="add-contact-container">
         <div className="modal-container">
           <Button bsStyle="primary" bsSize="small" onClick={() => this.setState({show: true})}>
-            Add Contact
+            <span className="plus-sign glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+            Contacts Keeper
           </Button>
 
           <Modal show={this.state.show} onHide={close} container={this} aria-labelledby="contained-modal-title">
