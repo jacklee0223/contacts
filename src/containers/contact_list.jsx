@@ -2,16 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchContacts } from '../actions/fetch_contacts';
+import { createContact } from '../actions/create_contact';
 
 class ContactList extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      contacts: []
+    };
 
     this.props.fetchContacts()
     .then((response) => {
-      this.setState({contacts: response.payload.data})
+      this.setState({contacts: [this.state.contacts, ...response.payload.data]})
     })
 
     this.sortTable = this.sortTable.bind(this);
@@ -28,12 +31,11 @@ class ContactList extends Component {
   }
 
   renderContact(contactData) {
-    let _contactData = contactData
     if ( !contactData ) {
       return <tbody></tbody>
     }
 
-    const contactItems = _contactData.map( contact => {
+    const contactItems = contactData.map( contact => {
       const fields = [ 'first_name', 'last_name', 'dob', 'notes', 'phone', 'email' ]
       const missing_fields = fields.some( field => {
         return !contact[ field ];
@@ -62,7 +64,6 @@ class ContactList extends Component {
 			)
 		} )
 
-
     return (
       <tbody>
         { contactItems }
@@ -83,14 +84,18 @@ class ContactList extends Component {
             <th name="notes" onClick={ this.sortTable }>Notes</th>
           </tr>
         </thead>
-        { this.renderContact( this.state.contacts ) }
+        { this.renderContact( this.props.contact[0] ) }
       </table>
     )
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchContacts }, dispatch)
+function mapStateToProps( { contact } ) {
+  return { contact };
 }
 
-export default connect(null, mapDispatchToProps)(ContactList)
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchContacts, createContact }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactList)

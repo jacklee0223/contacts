@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import { Modal, Button, Form, FormGroup, ControlLabel, FormControl, Col } from 'react-bootstrap'
 
 import { createContact } from '../actions/create_contact';
+import { fetchContacts } from '../actions/fetch_contacts';
 
 class AddContact extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class AddContact extends Component {
       phone: '',
       email: '',
       dob: '',
-      notes: '',
+      notes: ''
     };
 
     this.onAddContact = this.onAddContact.bind(this);
@@ -47,7 +48,19 @@ class AddContact extends Component {
       return;
     }
 
-    this.props.createContact( data );
+    this.props.createContact( data )
+    .then((response) => {
+      this.setState({
+        contact: response.payload.data,
+        first_name: '',
+        last_name: '',
+        phone: '',
+        email: '',
+        dob: '',
+        notes: '',
+        show: false
+      })
+    })
   }
 
   handleChange(event) {
@@ -109,38 +122,44 @@ class AddContact extends Component {
       let close = () => this.setState({ show: false});
 
       return (
-        <div className="modal-container">
-          <Button
-            bsStyle="primary"
-            bsSize="small"
-            onClick={() => this.setState({ show: true})}
-          >
-            Add Contact
-          </Button>
+        <div className="add-contact-container">
+          <div className="modal-container">
+            <Button
+              bsStyle="primary"
+              bsSize="small"
+              onClick={() => this.setState({ show: true})}
+            >
+              Add Contact
+            </Button>
 
-          <Modal
-            show={this.state.show}
-            onHide={close}
-            container={this}
-            aria-labelledby="contained-modal-title"
-          >
-            <Modal.Header closeButton>
-              <Modal.Title id="contained-modal-title">Add Contact</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              { this.renderForm() }
-            </Modal.Body>
-            <Modal.Footer>
-              <Button onClick={close}>Close</Button>
-            </Modal.Footer>
-          </Modal>
+            <Modal
+              show={this.state.show}
+              onHide={close}
+              container={this}
+              aria-labelledby="contained-modal-title"
+            >
+              <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title">Add Contact</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                { this.renderForm() }
+              </Modal.Body>
+              <Modal.Footer>
+                <Button onClick={close}>Close</Button>
+              </Modal.Footer>
+            </Modal>
+          </div>
         </div>
       );
     }
+}
+
+function mapStateToProps( { contact } ) {
+  return { contact };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ createContact }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(AddContact)
+export default connect(mapStateToProps, mapDispatchToProps)(AddContact)

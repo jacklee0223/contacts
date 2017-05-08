@@ -6,7 +6,9 @@ export default function( state = [], action ) {
     case FETCH_CONTACTS:
       return [ action.payload.data, ...state ]
     case CREATE_CONTACT:
-      return [ action.payload.data, ...state ]
+      let newArray = state.slice()
+      newArray[0].splice(0, 0, action.payload.data)
+      return newArray
     default:
       return state
   }
