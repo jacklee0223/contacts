@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import Moment from 'moment';
 import {
   Modal,
   Button,
@@ -33,12 +34,13 @@ class AddContact extends Component {
   onAddContact(event) {
     event.preventDefault();
     const state = this.state;
+    const dobFormatted = Moment( state.dob, "YYYY-MM-DD").format( "MM/DD/YYYY" );
     const data = {
       first_name: state.first_name,
       last_name: state.last_name,
       phone: state.phone,
       email: state.email,
-      dob: state.dob,
+      dob: dobFormatted,
       notes: state.notes
     }
 
@@ -124,9 +126,9 @@ class AddContact extends Component {
             <FormGroup className="add-contact-form add-contact-note" controlId="formInlineNote">
               <ControlLabel>Note</ControlLabel>
               {' '}
-              <textarea name="notes" cols="40" rows="5" type="text" placeholder="Notes" inputRef={ref => {
+              <FormControl componentClass="textarea" name="notes" cols="40" rows="5" type="text" placeholder="Notes" inputRef={ref => {
                 this.input = ref
-              }} value={this.state.notes} onChange={this.handleChange}></textarea>
+              }} value={this.state.notes} onChange={this.handleChange}/>
             </FormGroup>
             {' '}
         </Modal.Body>

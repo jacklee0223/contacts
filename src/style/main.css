@@ -125,6 +125,7 @@ body {
 
 .table th {
   background-color: #8c8c8c;
+  color: #ffffff;
 }
 
 .table th:hover {
@@ -172,6 +173,6 @@ body {
   }
 
   .add-contact-note textarea {
-    width: 95%;
+    width: 95% !important;
   }
 }
