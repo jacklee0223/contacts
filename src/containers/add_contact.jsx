@@ -80,8 +80,6 @@ class AddContact extends Component {
   }
 
   renderForm() {
-    let close = () => this.setState({show: false});
-
     return (
       <Form inline>
         <Modal.Body>
@@ -123,37 +121,38 @@ class AddContact extends Component {
               }} value={this.state.dob} onChange={this.handleChange}/>
             </FormGroup>
             {' '}
-            <FormGroup className="add-contact-form" controlId="formInlineNote">
+            <FormGroup className="add-contact-form add-contact-note" controlId="formInlineNote">
               <ControlLabel>Note</ControlLabel>
               {' '}
-              <FormControl type="text" placeholder="Notes" name="notes" inputRef={ref => {
+              <textarea name="notes" cols="40" rows="5" type="text" placeholder="Notes" inputRef={ref => {
                 this.input = ref
-              }} value={this.state.notes} onChange={this.handleChange}/>
+              }} value={this.state.notes} onChange={this.handleChange}></textarea>
             </FormGroup>
             {' '}
         </Modal.Body>
         <Modal.Footer>
-          <Button type="submit" onClick={this.onAddContact}>
-            Add Contact
+          <Button className="modal-submit" type="submit" onClick={this.onAddContact}>
+            Save
           </Button>
-          <Button onClick={close}>Close</Button>
         </Modal.Footer>
     </Form>
     )
   }
 
   render() {
+    let close = () => this.setState({show: false});
+
     return (
       <div className="add-contact-container">
         <div className="modal-container">
-          <Button bsStyle="primary" bsSize="small" onClick={() => this.setState({show: true})}>
+          <Button className="add-contact-btn" bsStyle="primary" bsSize="small" onClick={() => this.setState({show: true})}>
             <span className="plus-sign glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
             Contacts Keeper
           </Button>
 
           <Modal show={this.state.show} onHide={close} container={this} aria-labelledby="contained-modal-title">
-            <Modal.Header closeButton>
-              <Modal.Title id="contained-modal-title">Add Contact</Modal.Title>
+            <Modal.Header closeButton className="modal-header">
+              <Modal.Title id="contained-modal-title">Contact Keeper</Modal.Title>
             </Modal.Header>
             {this.renderForm()}
           </Modal>
