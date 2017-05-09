@@ -57,12 +57,12 @@ class ContactList extends Component {
       const email = contact.email;
       return (
         <tr key={id}>
-          <td>{first_name}</td>
-          <td>{last_name}</td>
-          <td>{phone}</td>
-          <td>{email}</td>
-          <td>{dob}</td>
-          <td>{notes}</td>
+          <td className="td-default">{first_name}</td>
+          <td className="td-default">{last_name}</td>
+          <td className="td-default">{phone}</td>
+          <td className="td-email">{email}</td>
+          <td className="td-default">{dob}</td>
+          <td className="td-notes">{notes}</td>
         </tr>
       )
     })

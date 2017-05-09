@@ -14,10 +14,15 @@ export default function( state = [], action ) {
       newState[0].splice(0, 0, action.payload.data)
       return newState
     case SEARCH_CONTACTS:
+      const keyword = action.payload
       newState = state.slice()
       newState[0] = newState[0].filter( contact => {
+        const hasKeyword = new RegExp( keyword );
         const some = _.some( contact, item => {
-          return item === action.payload
+          if ( typeof item === 'string' ) {
+            item = item.toLowerCase()
+          }
+          return hasKeyword.test( item )
         })
         return some
       } )

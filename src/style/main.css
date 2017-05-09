@@ -95,6 +95,14 @@ body {
   min-width: 80px;
 }
 
+.td-email, .td-phone {
+  min-width: 200px;
+}
+
+.td-notes {
+  min-width: 500px;
+}
+
 
 @media ( min-width: 750px) {
   .search-add-pane {
