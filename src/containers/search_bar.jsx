@@ -22,8 +22,8 @@ class SearchBar extends Component {
   }
 
   onInputChange( event ) {
-    const inputValue = event.target.value;
     event.preventDefault();
+    const inputValue = event.target.value;
     this.setState( { keyword: inputValue } )
     if ( inputValue === "" ) {
       this.props.resetSearch( this.state.default_contact );
@@ -31,8 +31,8 @@ class SearchBar extends Component {
   }
 
   onSearch( event ) {
-    const keyword = this.state.keyword
     event.preventDefault();
+    const keyword = this.state.keyword
     this.setState( {default_contact: this.props.contact} )
     if ( keyword.length > 0 ) {
       this.props.searchContacts(keyword)

@@ -134,15 +134,18 @@ body {
 
 .table th, tr, td {
   border: 1px solid #dbdbdb;
+}
+
+.th-default {
   min-width: 80px;
 }
 
-.td-email, .td-phone {
-  min-width: 200px;
+.th-email, .th-phone {
+  min-width: 80px;
 }
 
-.td-notes {
-  min-width: 500px;
+.th-notes {
+  min-width: 80px;
 }
 
 
@@ -174,5 +177,17 @@ body {
 
   .add-contact-note textarea {
     width: 95% !important;
+  }
+
+  .th-default {
+    min-width: 130px;
+  }
+
+  .th-email, .th-phone {
+    min-width: 200px;
+  }
+
+  .th-notes {
+    min-width: 505px;
   }
 }

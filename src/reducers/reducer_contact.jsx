@@ -14,7 +14,7 @@ export default function( state = [], action ) {
       newState[0].splice(0, 0, action.payload.data)
       return newState
     case SEARCH_CONTACTS:
-      const keyword = action.payload
+      const keyword = action.payload.toLowerCase();
       newState = state.slice()
       newState[0] = newState[0].filter( contact => {
         const hasKeyword = new RegExp( keyword );

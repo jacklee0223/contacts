@@ -57,12 +57,12 @@ class ContactList extends Component {
       const email = contact.email;
       return (
         <tr key={id}>
-          <td className="td-default">{first_name}</td>
-          <td className="td-default">{last_name}</td>
-          <td className="td-default">{phone}</td>
-          <td className="td-email">{email}</td>
-          <td className="td-default">{dob}</td>
-          <td className="td-notes">{notes}</td>
+          <td>{first_name}</td>
+          <td>{last_name}</td>
+          <td>{phone}</td>
+          <td>{email}</td>
+          <td>{dob}</td>
+          <td>{notes}</td>
         </tr>
       )
     })
@@ -79,12 +79,12 @@ class ContactList extends Component {
       <table className="table table-hover">
         <thead>
           <tr>
-            <th name="first_name" onClick={this.sortTable}>First Name</th>
-            <th name="last_name" onClick={this.sortTable}>Last Name</th>
-            <th name="phone" onClick={this.sortTable}>Phone</th>
-            <th name="email" onClick={this.sortTable}>Email</th>
-            <th name="dob" onClick={this.sortTable}>DOB</th>
-            <th name="notes" onClick={this.sortTable}>Notes</th>
+            <th className="th-default" name="first_name" onClick={this.sortTable}>First Name</th>
+            <th className="th-default" name="last_name" onClick={this.sortTable}>Last Name</th>
+            <th className="th-phone" name="phone" onClick={this.sortTable}>Phone</th>
+            <th className="th-email" name="email" onClick={this.sortTable}>Email</th>
+            <th className="th-default" name="dob" onClick={this.sortTable}>DOB</th>
+            <th className="th-notes" name="notes" onClick={this.sortTable}>Notes</th>
           </tr>
         </thead>
         {this.renderContact(this.props.contact[0])}
