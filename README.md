@@ -48,5 +48,35 @@ The challenge requirements seem vague, am I missing something?
 - This prompt is designed to be open-ended, so feel free to be creative in the areas that lack strict guidelines.
 
 # Running My App (README.md)
+### Clone Repo from jeongminlee branch
+SSH:
+`git clone -b jeongminlee git@github.com:ONEHOPEWINE/js-challenge.git`
+HTTPS:
+`git clone -b jeongminlee https://github.com/ONEHOPEWINE/js-challenge.git`
+
+### From terminal, CD into the js-challenge directory
+`cd js-challenge`
+
+### Install NPM Packages
+Make sure Node and NPM is installed on your machine, and run
+
+`npm install`
+
+### Compile Code
+`npm run build`
+
+### Start Local Dev Server
+`npm run start`
+and the app will be automatically loaded on `http://localhost:3000`
+
 ### Production URL
 https://jeongminlee-contacts.netlify.com/
+
+### Stack
+- React
+- Redux
+- Serverless Framework
+- AWS DynamoDB
+- Netlify
+
+This project uses Glyphicons from http://glyphicons.com/
