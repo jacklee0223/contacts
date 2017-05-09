@@ -73,10 +73,10 @@ and the app will be automatically loaded on `http://localhost:3000`
 https://jeongminlee-contacts.netlify.com/
 
 ### Stack
-- React
-- Redux
-- Serverless Framework
-- AWS DynamoDB
-- Netlify
+- [React](https://facebook.github.io/react/)
+- [Redux](http://redux.js.org/)
+- [Serverless Framework](https://serverless.com/)
+- [AWS DynamoDB](https://aws.amazon.com/dynamodb/)
+- [Netlify](https://www.netlify.com/)
 
-This project uses Glyphicons from http://glyphicons.com/
+This project uses [Glyphicons](http://glyphicons.com/)
