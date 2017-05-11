@@ -65,6 +65,11 @@ Make sure Node and NPM is installed on your machine, and run
 ### Compile Code
 `npm run build`
 
+### Automated Compile Code
+This will initiate build automatically whenever you save changes within src and public
+
+`npm run build:watch`
+
 ### Start Local Dev Server
 `npm run start`
 and the app will be automatically loaded on `http://localhost:3000`
