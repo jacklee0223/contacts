@@ -11,7 +11,6 @@ import './style/main.css';
 
 const createStoreWithMiddleware = applyMiddleware( ReduxPromise )(createStore);
 
-
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <App />
